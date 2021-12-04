@@ -1,6 +1,6 @@
-import '../meme.dart';
+import 'meme.dart';
 
-class AppState{
+class AppState {
   final List<Meme> memes;
   final int page;
   final bool isLoading;
