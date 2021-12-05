@@ -1,7 +1,7 @@
-import 'package:flutter_final_course_test/Actions/get_memes.dart';
-import 'package:flutter_final_course_test/Models/app_state.dart';
+import 'package:flutter_final_course_test/actions/get_memes.dart';
+import 'package:flutter_final_course_test/models/app_state.dart';
 import 'package:redux/redux.dart';
-import '../Models/meme.dart';
+import '../models/meme.dart';
 
 Reducer<AppState> reducer = combineReducers<AppState>(<Reducer<AppState>>[
   TypedReducer<AppState, GetMemes>(_getMemes),

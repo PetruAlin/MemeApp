@@ -2,16 +2,17 @@ import 'dart:convert';
 
 import 'package:http/http.dart';
 
-import '../Models/meme.dart';
+import '../models/meme.dart';
 
 class MemesApi {
   Future<List<Meme>> getMemes(int page) async {
     final Uri uri = Uri(
       scheme: 'http',
       host: 'alpha-meme-maker.herokuapp.com',
-      queryParameters: <String, String>{
-        'page': '$page',
-      },
+      pathSegments: <String>['$page'],
+      //queryParameters: <String, String>{
+      //  'page': '$page',
+      //},
     );
 
     final Response response = await get(uri);
@@ -27,7 +28,7 @@ class MemesApi {
 
     final List<Meme> memes = <Meme>[];
     for (int i = 0; i < names.length; i++) {
-      memes.add(Meme(names[i], images[i]));
+      memes.add(Meme(names[i], images[i].replaceAll("\n", r"\n")));
     }
 /*
     for (int i = 0; i < memes.length; i++) {

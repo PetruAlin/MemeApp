@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_final_course_test/Actions/get_memes.dart';
-import 'package:flutter_final_course_test/Containers/memes_container.dart';
-import 'package:flutter_final_course_test/Models/app_state.dart';
-import 'package:flutter_final_course_test/Models/meme.dart';
+import 'package:flutter_final_course_test/actions/get_memes.dart';
+import 'package:flutter_final_course_test/containers/memes_container.dart';
+import 'package:flutter_final_course_test/containers/load_container.dart';
+import 'package:flutter_final_course_test/models/app_state.dart';
+import 'package:flutter_final_course_test/models/meme.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
@@ -21,8 +22,22 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
 
     final Store store = StoreProvider.of<AppState>(context, listen: false);
-    store.dispatch(GetMemes(1));
+    store.dispatch(GetMemes(_onResult));
     _controller.addListener(_whenScrolling);
+  }
+
+  void _onResult(dynamic action) {
+    if (action is GetMemesError) {
+      showDialog<void>(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text('Error fetching memes'),
+            content: Text('${action.error}'),
+          );
+        }
+      );
+    }
   }
 
   void _whenScrolling() {
@@ -30,8 +45,8 @@ class _MyHomePageState extends State<MyHomePage> {
     final double currentPos = _controller.offset;
 
     final Store<AppState> store = StoreProvider.of<AppState>(context);
-    if (currentPos > endPos && !store.state.isLoading) {
-      store.dispatch(GetMemes(store.state.page + 1));
+    if (currentPos >= endPos && !store.state.isLoading) {
+      store.dispatch(GetMemes(_onResult));
     }
   }
 
@@ -44,7 +59,21 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: <Widget>[
+          LoadContainer(
+            builder: (BuildContext context, bool isLoading) {
+              if (!isLoading) {
+                return const SizedBox.shrink();
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          ),
+        ],
+      ),
       body: MemesContainer(
         builder: (BuildContext context, List<Meme> memes) {
           return ListView.builder(
@@ -56,7 +85,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                   Container(
                     padding: const EdgeInsets.all(20),
-                    child: Image.network(meme.image),
+                    child: Image.network(
+                      meme.image,
+                      errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      },
+                    ),
                   ),
                   ListTile(
                     title: Text(

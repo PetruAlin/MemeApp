@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_final_course_test/Models/app_state.dart';
-import 'package:flutter_final_course_test/Models/meme.dart';
+import 'package:flutter_final_course_test/models/app_state.dart';
+import 'package:flutter_final_course_test/models/meme.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 

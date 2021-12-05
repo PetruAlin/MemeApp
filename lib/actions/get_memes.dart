@@ -1,9 +1,9 @@
-import '../Models/meme.dart';
+import '../models/meme.dart';
 
 class GetMemes {
-  final int page;
+  final void Function(dynamic action) result;
 
-  GetMemes(this.page);
+  GetMemes(this.result);
 }
 
 class GetMemesSuccess {

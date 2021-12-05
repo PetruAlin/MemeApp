@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_final_course_test/Data/memes_api.dart';
-import 'package:flutter_final_course_test/Epics/app_epics.dart';
-import 'package:flutter_final_course_test/Models/app_state.dart';
+
+import 'package:flutter_final_course_test/epics/app_epics.dart';
+import 'package:flutter_final_course_test/models/app_state.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_epics/redux_epics.dart';
 
-import 'Presentation/home_page.dart';
-import 'Reducer/reducer.dart';
+import 'data/memes_api.dart';
+import 'presentation/home_page.dart';
+import 'reducer/reducer.dart';
 
 void main() {
   final MemesApi memesApi = MemesApi();
