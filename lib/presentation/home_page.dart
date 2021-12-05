@@ -29,14 +29,13 @@ class _MyHomePageState extends State<MyHomePage> {
   void _onResult(dynamic action) {
     if (action is GetMemesError) {
       showDialog<void>(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: const Text('Error fetching memes'),
-            content: Text('${action.error}'),
-          );
-        }
-      );
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: const Text('Error fetching memes'),
+              content: Text('${action.error}'),
+            );
+          });
     }
   }
 

@@ -10,9 +10,6 @@ class MemesApi {
       scheme: 'http',
       host: 'alpha-meme-maker.herokuapp.com',
       pathSegments: <String>['$page'],
-      //queryParameters: <String, String>{
-      //  'page': '$page',
-      //},
     );
 
     final Response response = await get(uri);
@@ -30,16 +27,7 @@ class MemesApi {
     for (int i = 0; i < names.length; i++) {
       memes.add(Meme(names[i], images[i].replaceAll("\n", r"\n")));
     }
-/*
-    for (int i = 0; i < memes.length; i++) {
-      print('${memes[i].name} ${memes[i].image}');
-    }
-*/
+
     return memes;
   }
 }
-/*
-void main() {
-  MemesApi api = MemesApi();
-  api.getMemes(1);
-}*/
