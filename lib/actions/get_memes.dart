@@ -1,19 +1,19 @@
 import '../models/meme.dart';
 
 class GetMemes {
-  final void Function(dynamic action) result;
-
   GetMemes(this.result);
+
+  final void Function(dynamic action) result;
 }
 
 class GetMemesSuccess {
-  final List<Meme> memes;
-
   GetMemesSuccess(this.memes);
+
+  final List<Meme> memes;
 }
 
 class GetMemesError {
-  final Object error;
-
   GetMemesError(this.error);
+
+  final Object error;
 }

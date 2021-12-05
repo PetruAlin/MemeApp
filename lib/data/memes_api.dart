@@ -18,14 +18,14 @@ class MemesApi {
       throw StateError('Error at getting memes');
     }
 
-    final Map<String, dynamic> body = jsonDecode(response.body);
+    final Map<String, dynamic> body = jsonDecode(response.body) as Map<String,dynamic>;
     final List<dynamic> content = body['data'] as List<dynamic>;
-    final List<String> names = content.map((el) => el['name'] as String).toList();
-    final List<String> images = content.map((el) => el['image'] as String).toList();
+    final List<String> names = content.map((dynamic el) => el['name'] as String).toList();
+    final List<String> images = content.map((dynamic el) => el['image'] as String).toList();
 
     final List<Meme> memes = <Meme>[];
     for (int i = 0; i < names.length; i++) {
-      memes.add(Meme(names[i], images[i].replaceAll("\n", r"\n")));
+      memes.add(Meme(names[i], images[i]));
     }
 
     return memes;

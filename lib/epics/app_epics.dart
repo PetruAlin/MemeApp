@@ -1,14 +1,15 @@
-import 'package:flutter_final_course_test/actions/get_memes.dart';
-import 'package:flutter_final_course_test/data/memes_api.dart';
-import 'package:flutter_final_course_test/models/app_state.dart';
-import 'package:flutter_final_course_test/models/meme.dart';
 import 'package:redux_epics/redux_epics.dart';
 import 'package:rxdart/rxdart.dart';
 
-class AppEpics {
-  final MemesApi _memesApi;
+import '../actions/get_memes.dart';
+import '../data/memes_api.dart';
+import '../models/app_state.dart';
+import '../models/meme.dart';
 
+class AppEpics {
   AppEpics(this._memesApi);
+
+  final MemesApi _memesApi;
 
   Epic<AppState> get epics {
     return combineEpics([
@@ -17,7 +18,7 @@ class AppEpics {
   }
 
   Stream<dynamic> getMemes(Stream<GetMemes> a, EpicStore<AppState> store) {
-    return a.flatMap((GetMemes action) => Stream<void>.value(null)
+    return a.flatMap<dynamic>((GetMemes action) => Stream<void>.value(null)
         .asyncMap((_) => _memesApi.getMemes(store.state.page))
         .map<Object>((List<Meme> memes) => GetMemesSuccess(memes))
         .onErrorReturnWith((error) => GetMemesError(error))

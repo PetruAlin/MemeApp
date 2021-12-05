@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_final_course_test/models/app_state.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
-class LoadContainer extends StatelessWidget {
-  final ViewModelBuilder<bool> builder;
+import '../models/app_state.dart';
 
+class LoadContainer extends StatelessWidget {
   const LoadContainer({Key? key, required this.builder}) : super(key: key);
+
+  final ViewModelBuilder<bool> builder;
 
   @override
   Widget build(BuildContext context) {
