@@ -18,7 +18,7 @@ class MemesApi {
       throw StateError('Error at getting memes');
     }
 
-    final Map<String, dynamic> body = jsonDecode(response.body) as Map<String,dynamic>;
+    final Map<String, dynamic> body = jsonDecode(response.body) as Map<String, dynamic>;
     final List<dynamic> content = body['data'] as List<dynamic>;
     final List<String> names = content.map((dynamic el) => el['name'] as String).toList();
     final List<String> images = content.map((dynamic el) => el['image'] as String).toList();
