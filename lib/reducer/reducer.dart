@@ -1,6 +1,7 @@
-import 'package:flutter_final_course_test/actions/get_memes.dart';
-import 'package:flutter_final_course_test/models/app_state.dart';
 import 'package:redux/redux.dart';
+
+import '../actions/get_memes.dart';
+import '../models/app_state.dart';
 import '../models/meme.dart';
 
 Reducer<AppState> reducer = combineReducers<AppState>(<Reducer<AppState>>[
@@ -14,7 +15,7 @@ AppState _getMemes(AppState state, GetMemes action) {
 }
 
 AppState _getSuccess(AppState state, GetMemesSuccess action) {
-  List<Meme> newMemes = <Meme>[];
+  final List<Meme> newMemes = <Meme>[];
   newMemes.addAll(state.memes);
   newMemes.addAll(action.memes);
   return state.copyWith(isLoading: false, memes: newMemes, page: state.page + 1);

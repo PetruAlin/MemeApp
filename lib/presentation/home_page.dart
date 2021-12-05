@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_final_course_test/actions/get_memes.dart';
-import 'package:flutter_final_course_test/containers/memes_container.dart';
-import 'package:flutter_final_course_test/containers/load_container.dart';
-import 'package:flutter_final_course_test/models/app_state.dart';
-import 'package:flutter_final_course_test/models/meme.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
+
+import '../actions/get_memes.dart';
+import '../containers/load_container.dart';
+import '../containers/memes_container.dart';
+import '../models/app_state.dart';
+import '../models/meme.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
