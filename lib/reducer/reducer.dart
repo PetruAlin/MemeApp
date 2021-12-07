@@ -1,12 +1,11 @@
 import 'package:redux/redux.dart';
 
-import '../actions/get_memes.dart';
-import '../models/app_state.dart';
-import '../models/meme.dart';
+import '../actions/index.dart';
+import '../models/index.dart';
 
 Reducer<AppState> reducer = combineReducers<AppState>(<Reducer<AppState>>[
-  TypedReducer<AppState, GetMemes>(_getMemes),
-  TypedReducer<AppState, GetMemesSuccess>(_getSuccess),
+  TypedReducer<AppState, GetMemesStart>(_getMemes),
+  TypedReducer<AppState, GetMemesSuccessful>(_getSuccess),
   TypedReducer<AppState, GetMemesError>(_getError),
 ]);
 
@@ -14,7 +13,7 @@ AppState _getMemes(AppState state, GetMemes action) {
   return state.copyWith(isLoading: true);
 }
 
-AppState _getSuccess(AppState state, GetMemesSuccess action) {
+AppState _getSuccess(AppState state, GetMemesSuccessful action) {
   final List<Meme> newMemes = <Meme>[];
   newMemes.addAll(state.memes);
   newMemes.addAll(action.memes);

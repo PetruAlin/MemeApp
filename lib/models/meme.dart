@@ -1,6 +1,11 @@
-class Meme {
-  Meme(this.name, this.image);
+part of models;
 
-  final String name;
-  final String image;
+@freezed
+class Meme with _$Meme {
+  const factory Meme({
+    required String name,
+    required String image,
+  }) = Meme$;
+
+  factory Meme.fromJson(Map<dynamic, dynamic> json) => _$MemeFromJson(Map<String, dynamic>.from(json));
 }

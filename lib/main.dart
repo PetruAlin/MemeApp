@@ -5,7 +5,7 @@ import 'package:redux_epics/redux_epics.dart';
 
 import 'data/memes_api.dart';
 import 'epics/app_epics.dart';
-import 'models/app_state.dart';
+import 'models/index.dart';
 import 'presentation/home_page.dart';
 import 'reducer/reducer.dart';
 
@@ -15,7 +15,7 @@ void main() {
 
   final Store<AppState> store = Store<AppState>(
     reducer,
-    initialState: AppState(),
+    initialState: const AppState(),
     middleware: <Middleware<AppState>>[
       (Store<AppState> store, dynamic action, NextDispatcher next) {
         next(action);

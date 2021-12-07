@@ -1,10 +1,9 @@
 import 'package:redux_epics/redux_epics.dart';
 import 'package:rxdart/rxdart.dart';
 
-import '../actions/get_memes.dart';
+import '../actions/index.dart';
 import '../data/memes_api.dart';
-import '../models/app_state.dart';
-import '../models/meme.dart';
+import '../models/index.dart';
 
 class AppEpics {
   AppEpics(this._memesApi);
@@ -13,15 +12,15 @@ class AppEpics {
 
   Epic<AppState> get epics {
     return combineEpics([
-      TypedEpic<AppState, GetMemes>(getMemes),
+      TypedEpic<AppState, GetMemesStart>(getMemes),
     ]);
   }
 
-  Stream<dynamic> getMemes(Stream<GetMemes> a, EpicStore<AppState> store) {
-    return a.flatMap<dynamic>((GetMemes action) => Stream<void>.value(null)
+  Stream<GetMemes> getMemes(Stream<GetMemesStart> a, EpicStore<AppState> store) {
+    return a.flatMap((GetMemesStart action) => Stream<void>.value(null)
         .asyncMap((_) => _memesApi.getMemes(store.state.page))
-        .map<Object>((List<Meme> memes) => GetMemesSuccess(memes))
-        .onErrorReturnWith((error) => GetMemesError(error))
+        .map<GetMemes>((List<Meme> memes) => GetMemes.successful(memes))
+        .onErrorReturnWith((error) => GetMemes.error(error))
         .doOnData(action.result));
   }
 }

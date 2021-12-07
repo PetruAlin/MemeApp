@@ -2,8 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
-import '../models/app_state.dart';
-import '../models/meme.dart';
+import '../models/index.dart';
 
 class MemesContainer extends StatelessWidget {
   const MemesContainer({Key? key, required this.builder}) : super(key: key);
