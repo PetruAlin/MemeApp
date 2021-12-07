@@ -48,8 +48,7 @@ mixin _$Meme {
 
 /// @nodoc
 abstract class $MemeCopyWith<$Res> {
-  factory $MemeCopyWith(Meme value, $Res Function(Meme) then) =
-      _$MemeCopyWithImpl<$Res>;
+  factory $MemeCopyWith(Meme value, $Res Function(Meme) then) = _$MemeCopyWithImpl<$Res>;
   $Res call({String name, String image});
 }
 
@@ -81,17 +80,14 @@ class _$MemeCopyWithImpl<$Res> implements $MemeCopyWith<$Res> {
 
 /// @nodoc
 abstract class $Meme$CopyWith<$Res> implements $MemeCopyWith<$Res> {
-  factory $Meme$CopyWith(Meme$ value, $Res Function(Meme$) then) =
-      _$Meme$CopyWithImpl<$Res>;
+  factory $Meme$CopyWith(Meme$ value, $Res Function(Meme$) then) = _$Meme$CopyWithImpl<$Res>;
   @override
   $Res call({String name, String image});
 }
 
 /// @nodoc
-class _$Meme$CopyWithImpl<$Res> extends _$MemeCopyWithImpl<$Res>
-    implements $Meme$CopyWith<$Res> {
-  _$Meme$CopyWithImpl(Meme$ _value, $Res Function(Meme$) _then)
-      : super(_value, (v) => _then(v as Meme$));
+class _$Meme$CopyWithImpl<$Res> extends _$MemeCopyWithImpl<$Res> implements $Meme$CopyWith<$Res> {
+  _$Meme$CopyWithImpl(Meme$ _value, $Res Function(Meme$) _then) : super(_value, (v) => _then(v as Meme$));
 
   @override
   Meme$ get _value => super._value as Meme$;
@@ -141,15 +137,12 @@ class _$Meme$ implements Meme$ {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(image));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(name), const DeepCollectionEquality().hash(image));
 
   @JsonKey(ignore: true)
   @override
-  $Meme$CopyWith<Meme$> get copyWith =>
-      _$Meme$CopyWithImpl<Meme$>(this, _$identity);
+  $Meme$CopyWith<Meme$> get copyWith => _$Meme$CopyWithImpl<Meme$>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -175,10 +168,7 @@ abstract class Meme$ implements Meme {
 class _$AppStateTearOff {
   const _$AppStateTearOff();
 
-  AppState$ call(
-      {List<Meme> memes = const <Meme>[],
-      int page = 1,
-      bool isLoading = false}) {
+  AppState$ call({List<Meme> memes = const <Meme>[], int page = 1, bool isLoading = false}) {
     return AppState$(
       memes: memes,
       page: page,
@@ -197,14 +187,12 @@ mixin _$AppState {
   bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AppStateCopyWith<AppState> get copyWith =>
-      throw _privateConstructorUsedError;
+  $AppStateCopyWith<AppState> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AppStateCopyWith<$Res> {
-  factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
-      _$AppStateCopyWithImpl<$Res>;
+  factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) = _$AppStateCopyWithImpl<$Res>;
   $Res call({List<Meme> memes, int page, bool isLoading});
 }
 
@@ -241,15 +229,13 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
 
 /// @nodoc
 abstract class $AppState$CopyWith<$Res> implements $AppStateCopyWith<$Res> {
-  factory $AppState$CopyWith(AppState$ value, $Res Function(AppState$) then) =
-      _$AppState$CopyWithImpl<$Res>;
+  factory $AppState$CopyWith(AppState$ value, $Res Function(AppState$) then) = _$AppState$CopyWithImpl<$Res>;
   @override
   $Res call({List<Meme> memes, int page, bool isLoading});
 }
 
 /// @nodoc
-class _$AppState$CopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
-    implements $AppState$CopyWith<$Res> {
+class _$AppState$CopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res> implements $AppState$CopyWith<$Res> {
   _$AppState$CopyWithImpl(AppState$ _value, $Res Function(AppState$) _then)
       : super(_value, (v) => _then(v as AppState$));
 
@@ -282,8 +268,7 @@ class _$AppState$CopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AppState$ implements AppState$ {
-  const _$AppState$(
-      {this.memes = const <Meme>[], this.page = 1, this.isLoading = false});
+  const _$AppState$({this.memes = const <Meme>[], this.page = 1, this.isLoading = false});
 
   @JsonKey(defaultValue: const <Meme>[])
   @override
@@ -311,21 +296,16 @@ class _$AppState$ implements AppState$ {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(memes),
-      const DeepCollectionEquality().hash(page),
-      const DeepCollectionEquality().hash(isLoading));
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(memes),
+      const DeepCollectionEquality().hash(page), const DeepCollectionEquality().hash(isLoading));
 
   @JsonKey(ignore: true)
   @override
-  $AppState$CopyWith<AppState$> get copyWith =>
-      _$AppState$CopyWithImpl<AppState$>(this, _$identity);
+  $AppState$CopyWith<AppState$> get copyWith => _$AppState$CopyWithImpl<AppState$>(this, _$identity);
 }
 
 abstract class AppState$ implements AppState {
-  const factory AppState$({List<Meme> memes, int page, bool isLoading}) =
-      _$AppState$;
+  const factory AppState$({List<Meme> memes, int page, bool isLoading}) = _$AppState$;
 
   @override
   List<Meme> get memes;
@@ -335,6 +315,5 @@ abstract class AppState$ implements AppState {
   bool get isLoading;
   @override
   @JsonKey(ignore: true)
-  $AppState$CopyWith<AppState$> get copyWith =>
-      throw _privateConstructorUsedError;
+  $AppState$CopyWith<AppState$> get copyWith => throw _privateConstructorUsedError;
 }

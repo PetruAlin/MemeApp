@@ -6,5 +6,5 @@ class AppState with _$AppState {
     @Default(<Meme>[]) List<Meme> memes,
     @Default(1) int page,
     @Default(false) bool isLoading,
-}) = AppState$;
+  }) = AppState$;
 }
