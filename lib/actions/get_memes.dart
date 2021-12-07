@@ -1,19 +1,10 @@
-import '../models/index.dart';
+part of actions;
 
-class GetMemes {
-  GetMemes(this.result);
+@freezed
+class GetMemes with _$GetMemes {
+  const factory GetMemes(void Function(dynamic action) result) = GetMemesStart;
 
-  final void Function(dynamic action) result;
-}
+  const factory GetMemes.successful(List<Meme> memes) = GetMemesSuccessful;
 
-class GetMemesSuccess {
-  GetMemesSuccess(this.memes);
-
-  final List<Meme> memes;
-}
-
-class GetMemesError {
-  GetMemesError(this.error);
-
-  final Object error;
+  const factory GetMemes.error(Object error) = GetMemesError;
 }
