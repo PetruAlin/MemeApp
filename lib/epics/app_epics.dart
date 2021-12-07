@@ -3,8 +3,7 @@ import 'package:rxdart/rxdart.dart';
 
 import '../actions/get_memes.dart';
 import '../data/memes_api.dart';
-import '../models/app_state.dart';
-import '../models/meme.dart';
+import '../models/index.dart';
 
 class AppEpics {
   AppEpics(this._memesApi);

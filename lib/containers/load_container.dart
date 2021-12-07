@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
-import '../models/app_state.dart';
+import '../models/index.dart';
 
 class LoadContainer extends StatelessWidget {
   const LoadContainer({Key? key, required this.builder}) : super(key: key);

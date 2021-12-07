@@ -5,8 +5,7 @@ import 'package:redux/redux.dart';
 import '../actions/get_memes.dart';
 import '../containers/load_container.dart';
 import '../containers/memes_container.dart';
-import '../models/app_state.dart';
-import '../models/meme.dart';
+import '../models/index.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);

@@ -1,4 +1,4 @@
-import '../models/meme.dart';
+import '../models/index.dart';
 
 class GetMemes {
   GetMemes(this.result);

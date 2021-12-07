@@ -1,8 +1,7 @@
 import 'package:redux/redux.dart';
 
 import '../actions/get_memes.dart';
-import '../models/app_state.dart';
-import '../models/meme.dart';
+import '../models/index.dart';
 
 Reducer<AppState> reducer = combineReducers<AppState>(<Reducer<AppState>>[
   TypedReducer<AppState, GetMemes>(_getMemes),

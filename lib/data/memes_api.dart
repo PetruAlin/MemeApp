@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart';
 
-import '../models/meme.dart';
+import '../models/index.dart';
 
 class MemesApi {
   Future<List<Meme>> getMemes(int page) async {
@@ -20,12 +20,10 @@ class MemesApi {
 
     final Map<String, dynamic> body = jsonDecode(response.body) as Map<String, dynamic>;
     final List<dynamic> content = body['data'] as List<dynamic>;
-    final List<String> names = content.map((dynamic el) => el['name'] as String).toList();
-    final List<String> images = content.map((dynamic el) => el['image'] as String).toList();
 
     final List<Meme> memes = <Meme>[];
-    for (int i = 0; i < names.length; i++) {
-      memes.add(Meme(names[i], images[i]));
+    for (int i = 0; i < content.length; i++) {
+      memes.add(Meme.fromJson(content[i] as Map<String, dynamic>));
     }
 
     return memes;
